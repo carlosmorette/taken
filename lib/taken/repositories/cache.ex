@@ -15,6 +15,8 @@ defmodule Taken.Repositories.CacheRepository do
         host: host,
         port: port
       )
+
+    {:ok, conn}
   end
 
   ## Public API

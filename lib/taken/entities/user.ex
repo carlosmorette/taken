@@ -1,8 +1,9 @@
-defmodule Taken.Entities.User do
+defmodule Taken.Entities.UserEntity do
   use Ecto.Schema
 
-  schema "user" do
+  @primary_key {:id, :binary_id, autogenerate: :unique}
 
+  schema "users" do
     timestamps()
   end
 end

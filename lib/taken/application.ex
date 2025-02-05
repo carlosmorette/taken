@@ -17,7 +17,8 @@ defmodule Taken.Application do
       # Start a worker by calling: Taken.Worker.start_link(arg)
       # {Taken.Worker, arg},
       # Start to serve requests, typically the last entry
-      TakenWeb.Endpoint
+      TakenWeb.Endpoint,
+      {Oban, Application.fetch_env!(:taken, Oban)}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

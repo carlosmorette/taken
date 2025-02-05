@@ -1,3 +1,4 @@
-defmodule Taken.Dtos.External.ErrorDTO do
-  defstruct [message: nil, details: nil]
+defmodule Taken.DTOs.External.ErrorDTO do
+  @derive {Jason.Encoder, only: [:message, :details]}
+  defstruct [message: nil, details: %{}]
 end

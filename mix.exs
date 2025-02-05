@@ -61,7 +61,7 @@ defmodule Taken.MixProject do
       {:bandit, "~> 1.5"},
       ## Oban install
       {:igniter, "~> 0.5"},
-      {:oban, "~> 2.19"},
+      {:oban, "~> 2.0"},
       ## Redix install
       {:redix, "~> 1.1"},
       {:castore, ">= 0.0.0"}

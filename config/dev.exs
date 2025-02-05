@@ -4,7 +4,7 @@ import Config
 config :taken, Taken.Repo,
   username: "postgres",
   password: "postgres",
-  hostname: "localhost",
+  hostname: System.get_env("POSTGRES_HOST") || "localhost",
   database: "taken_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
@@ -19,7 +19,7 @@ config :taken, Taken.Repo,
 config :taken, TakenWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
-  http: [ip: {127, 0, 0, 1}, port: 4000],
+  http: [ip: {0, 0, 0, 0}, port: 4000],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
@@ -66,7 +66,7 @@ config :taken, TakenWeb.Endpoint,
 config :taken, dev_routes: true
 
 # Do not include metadata nor timestamps in development logs
-#config :logger, :console, format: "[$level] $message\n"
+# config :logger, :console, format: "[$level] $message\n"
 
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
@@ -87,7 +87,6 @@ config :swoosh, :api_client, false
 config :taken, Taken.Repositories.CacheRepository,
   host: "redis",
   port: 5000
-
 
 config :taken,
   token_expiration_in_seconds: 120
