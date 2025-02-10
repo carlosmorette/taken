@@ -2,6 +2,8 @@ defmodule Taken.Entities.UsageHistoryEntity do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias Taken.Entities.UserEntity
+
   @foreign_key_type :binary_id
 
   schema "token_usage_history" do

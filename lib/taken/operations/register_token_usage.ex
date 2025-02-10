@@ -32,11 +32,11 @@ defmodule Taken.Operations.RegisterTokenUsageOperation do
     register_dto
   end
 
-  defp handle_error(false), do: error_response("Os dados informados estão incorretos", %{})
+  defp handle_error(false), do: error_response("Os dados informados estão incorretos")
   defp handle_error({:error, error}) when is_list(error), do: error_response("Os dados informados estão incorretos", error)
-  defp handle_error({:error, _error}), do: error_response("Aconteceu um erro ao registrar uso de token", %{})
+  defp handle_error({:error, _error}), do: error_response("Aconteceu um erro ao registrar uso de token")
 
-  defp error_response(message, details) do
+  defp error_response(message, details \\ %{}) do
     {:error, %ErrorDTO{message: message, details: details}}
   end
 

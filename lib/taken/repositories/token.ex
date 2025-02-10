@@ -16,6 +16,20 @@ defmodule Taken.Repositories.TokenRepository do
     Repo.one(query)
   end
 
+  def find(token_id: token_id) do
+    query =
+      from t in TokenEntity,
+        where: t.id == ^token_id,
+        left_join: uh in UsageHistoryEntity,
+        on: uh.token_id == t.id,
+        preload: [usage_history: uh]
+
+    Repo.one(query)
+  rescue
+    Ecto.Query.CastError ->
+      nil
+  end
+
   def update_to_available!(%TokenEntity{} = token) do
     token
     |> TokenEntity.update_changeset(%{status: :available})

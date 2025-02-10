@@ -1,4 +1,4 @@
-defmodule Taken.Operations.GetTokens do
+defmodule Taken.Operations.GetTokensOperation do
   alias Taken.DTOs.Internal.GetTokensDTO
   alias Taken.DTOs.External.{ErrorDTO, PageDTO}
   alias Taken.Repositories.TokenRepository

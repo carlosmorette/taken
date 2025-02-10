@@ -20,4 +20,8 @@ defmodule Taken.Repositories.UsageHistoryRepository do
   def find_not_finished_user_token_usage(%RegisterTokenUsageDTO{} = dto) do
     Repo.one(from u in UsageHistoryEntity, where: u.user_id == ^dto.user_id, where: is_nil(u.finished_at))
   end
+
+  def preload_user(%UsageHistoryEntity{} = entity) do
+    Repo.preload(entity, :user)
+  end
 end

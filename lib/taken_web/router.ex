@@ -23,8 +23,9 @@ defmodule TakenWeb.Router do
   scope "/api/v1", TakenWeb do
     pipe_through :api
 
-    post "/register_usage", TokenController, :register_usage
-    get "/list", TokenController, :list
+    post "/token/register_usage", TokenController, :register_usage
+    get "/token/list", TokenController, :list
+    get "/token", TokenController, :get
   end
 
   # Other scopes may use custom stacks.
