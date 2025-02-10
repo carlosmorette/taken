@@ -48,4 +48,13 @@ defmodule Taken.Repositories.TokenRepository do
         preload: [usage_history: uh]
     )
   end
+
+  def find_all(limit: limit, offset: offset) do
+    Repo.all(
+      from t in TokenEntity,
+      order_by: {:desc, :inserted_at},
+      limit: ^limit,
+      offset: ^offset
+    )
+  end
 end

@@ -24,7 +24,7 @@ defmodule Taken.Operations.RegisterTokenUsageOperation do
     end)
   end
 
-  defp process_token_usage(register_dto) do
+  defp process_token_usage(%RegisterTokenUsageDTO{} = register_dto) do
     TokenRepository.update_to_active(register_dto.token_id)
     UsageHistoryRepository.insert!(register_dto)
     TokenLiberationWorker.enqueue(register_dto)

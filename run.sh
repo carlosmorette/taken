@@ -13,6 +13,7 @@ if [[ "$ENVIRONMENT" == "container" ]]; then
     echo "Ambiente configurado para container."
 elif [[ "$ENVIRONMENT" == "local" ]]; then
     export POSTGRES_HOST="localhost"
+    docker-compose up -d postgres
     echo "Ambiente configurado para local."
 else
     echo "Opção inválida. Por favor, forneça 'local' ou 'container'."
