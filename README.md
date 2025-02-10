@@ -9,3 +9,4 @@ Sistema de gerencimanto de tokens
 - Oban: Bibliotecas para processamento de tarefas assíncronas em segundo plano.
 - PostgreSQL: Banco de dados relacional utilizado pela aplicação.
 - Ecto: Biblioteca de mapeamento objeto-relacional (ORM) para Elixir.
+- Ecto: Biblioteca de mapeamento objeto-relacional (ORM) para Elixir.
